@@ -1,0 +1,6 @@
+# Python geçici dosyaları
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
