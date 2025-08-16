@@ -1,30 +1,121 @@
-# No conversation
+# 🌞 Güneş Enerjisi Envanteri
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Dünyanın güneş enerjisi potansiyelini analiz eden ve görselleştiren web tabanlı bir araç. Bu prototip, bireylerin, işletmelerin ve yerel yönetimlerin binalarının çatılarının güneş enerjisi üretimi için ne kadar uygun olduğunu değerlendirmelerine yardımcı olmayı amaçlamaktadır.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/sleepwhys-projects/v0-no-conversation)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/jUDtn8Igp7N)
+## 🎯 Proje Amacı
 
-## Overview
+Türkiye, yıllık ortalama **7.5 kWh/m²** güneşlenme potansiyeliyle güneş enerjisi açısından zengin bir ülke olmasına rağmen, bu potansiyeli tam olarak kullanamamaktadır. Bu projenin temel hedefleri:
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- 🏢 Binaların çatı güneş enerjisi potansiyelini analiz etmek
+- 📊 Yatırım geri dönüş sürelerini hesaplamak
+- 🌍 Sürdürülebilir kalkınmaya katkı sağlamak
+- 📈 Yeşil enerjiye geçişi hızlandırmak
 
-## Deployment
+## 🛠️ Teknolojiler
 
-Your project is live at:
+### Frontend
 
-**[https://vercel.com/sleepwhys-projects/v0-no-conversation](https://vercel.com/sleepwhys-projects/v0-no-conversation)**
+- **Next.js 15** - React framework
+- **React 18** - UI kütüphanesi
+- **TypeScript** - Tip güvenliği
+- **Tailwind CSS** - Styling
+- **Leaflet** - Harita görselleştirme
 
-## Build your app
+### UI Bileşenleri
 
-Continue building your app on:
+- **Radix UI** - Erişilebilir UI bileşenleri
+- **Lucide React** - İkonlar
+- **Recharts** - Veri görselleştirme
+- **Sonner** - Toast bildirimleri
 
-**[https://v0.app/chat/projects/jUDtn8Igp7N](https://v0.app/chat/projects/jUDtn8Igp7N)**
+### Veri Kaynakları
 
-## How It Works
+- **OpenStreetMap (OSM)** - Bina verileri
+- **NASA POWER API** - Güneşlenme verileri
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 🚀 Kurulum
+
+### Gereksinimler
+
+- Node.js 18+
+- npm veya yarn
+
+### Adımlar
+
+1. **Repository'yi klonlayın:**
+
+```bash
+git clone https://github.com/DenizBitmez/yesil-enerji-envanteri
+cd yesil-enerji-envanteri/frontend
+```
+
+2. **Bağımlılıkları yükleyin:**
+
+```bash
+npm install
+# veya
+yarn install
+```
+
+3. **Geliştirme sunucusunu başlatın:**
+
+```bash
+npm run dev
+# veya
+yarn dev
+```
+
+4. **Uygulamayı görüntüleyin:**
+   Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
+
+## 📁 Proje Yapısı
+
+```
+├── app/
+│   ├── components/         # React bileşenleri
+│   │   ├── Map.jsx        # Harita bileşeni
+│   │   └── ...
+│   ├── globals.css        # Global stiller
+│   ├── layout.js          # Root layout
+│   └── page.js           # Ana sayfa
+├── public/               # Statik dosyalar
+├── package.json         # Proje bağımlılıkları
+└── README.md           # Bu dosya
+```
+
+## 🗺️ Özellikler
+
+### Mevcut Özellikler
+
+- ✅ İnteraktif harita görüntüleme
+- ✅ Türkiye haritası odaklı görünüm
+- ✅ Responsive tasarım
+- ✅ Modern UI/UX
+
+## 🧪 Geliştirme
+
+### Komutlar
+
+```bash
+npm run dev      # Geliştirme sunucusu
+npm run build    # Üretim build'i
+npm run start    # Üretim sunucusu
+npm run lint     # Kod kalitesi kontrolü
+```
+
+## 📊 Veri Kaynakları
+
+- **OpenStreetMap**: Bina geometri verileri
+- **NASA POWER**: Meteorolojik ve güneş radyasyonu verileri
+
+## 📄 Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakınız.
+
+---
+
+⭐ Bu projeyi beğendiyseniz, lütfen bir yıldız verin!
+
+---
+
+<i>💭 Bu projenin front-end kısmının bazı yerleri v0 agent ile geliştirilmiştir.
