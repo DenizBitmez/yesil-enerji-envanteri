@@ -1,23 +1,31 @@
 from flask import Flask, jsonify, request
 from utils import get_buildings_from_overpass, calculate_energy_potential
 from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/potential', methods=['POST'])
 def get_potential_data_from_map():
-    """
-    Kullanıcının haritada seçtiği alana ait potansiyel verisini döndürür.
-    JSON'dan coğrafi sınırlar (bbox) veya poligon verisi bekler.
-    """
     try:
         data = request.get_json()
-        if not data:
-            return jsonify({"error": "No data provided"}), 400
+        if not data or 'coords' not in data:
+            return jsonify({"error": "No data or 'coords' key provided"}), 400
 
-        coords = data.get('coords')  # Örnek: {'lat_min': ..., 'lat_max': ..., ...}
+        # Gelen verideki doğru anahtarları kullanarak 'coords' sözlüğünü oluşturun
+        try:
+            coords = {
+                'south': float(data['coords']['south']),
+                'west': float(data['coords']['west']),
+                'north': float(data['coords']['north']),
+                'east': float(data['coords']['east'])
+            }
+        except (KeyError, ValueError):
+            return jsonify({"error": "Invalid coordinate data format. Expected numerical values for 'south', 'west', 'north', 'east'."}), 400
 
         buildings_geojson = get_buildings_from_overpass(coords)
-        if not buildings_geojson:
+        
+        if not buildings_geojson or not buildings_geojson.get('features'):
             return jsonify({"message": "No buildings found in the selected area"}), 200
 
         potential_data = calculate_energy_potential(buildings_geojson)

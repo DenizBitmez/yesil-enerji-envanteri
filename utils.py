@@ -1,18 +1,12 @@
 import requests
 import json
 from pandas import DataFrame as pd
-from geopandas import GeoDataFrame
+import geopandas as gpd
 from shapely.geometry import shape
 
 def get_buildings_from_overpass(bounds):
     """
-    Verilen coğrafi sınırlar (bounds) içindeki binaları Overpass API'den çeker.
-    
-    Args:
-        bounds (dict): Coğrafi sınırlar {'south': float, 'west': float, 'north': float, 'east': float}
-        
-    Returns:
-        dict: Binaları içeren GeoJSON formatında bir sözlük.
+    Belirlenen coğrafi sınırlar (bounds) içindeki binaları Overpass API'den çeker.
     """
     overpass_query = f"""
     [out:json][timeout:60];
@@ -22,35 +16,49 @@ def get_buildings_from_overpass(bounds):
     );
     out geom;
     """
-
-    overpass_url = "http://overpass-api.de/api/interpreter"
     
-    print("Overpass API'den bina verisi çekiliyor...")
+    overpass_url = "http://overpass-api.de/api/interpreter"
     
     try:
         response = requests.post(overpass_url, data=overpass_query)
         response.raise_for_status()
-
         data = response.json()
         
         features = []
         for element in data.get("elements", []):
             if element["type"] in ["way", "relation"]:
-                geometry = {
+                geometry = element.get("geometry", [])
+                
+                # Koordinatları işlerken hata kontrolü ekle
+                coords = []
+                is_valid = True
+                for point in geometry:
+                    try:
+                        lon = float(point.get('lon'))
+                        lat = float(point.get('lat'))
+                        coords.append((lon, lat))
+                    except (ValueError, TypeError, KeyError):
+                        print(f"Hatalı koordinat verisi atlanıyor: {point}")
+                        is_valid = False
+                        break  # Hatalı nokta varsa tüm geometriden çık
+
+                if not is_valid or len(coords) < 3:
+                    continue # Hatalı geometriyi atla
+
+                geojson_geometry = {
                     "type": "Polygon",
-                    "coordinates": [[(lon, lat) for lon, lat in element.get("geometry", [])]]
+                    "coordinates": [coords]
                 }
                 
                 features.append({
                     "type": "Feature",
-                    "geometry": geometry,
+                    "geometry": geojson_geometry,
                     "properties": element.get("tags", {})
                 })
         
         geojson = {"type": "FeatureCollection", "features": features}
         
-        print(f"Başarıyla {len(features)} adet bina verisi çekildi.")
-        
+        print(f"Başarıyla {len(features)} adet geçerli bina verisi çekildi.")
         return geojson
 
     except requests.exceptions.RequestException as e:
@@ -59,48 +67,54 @@ def get_buildings_from_overpass(bounds):
     except json.JSONDecodeError as e:
         print(f"API yanıtı işlenirken hata oluştu: {e}")
         return None
-
-if __name__ == '__main__':
-    test_bounds = {
-        'south': 40.99,
-        'west': 29.00,
-        'north': 41.01,
-        'east': 29.02
-    }
-    
-    buildings_data = get_buildings_from_overpass(test_bounds)
-    
-    if buildings_data:
-        with open('test_buildings.geojson', 'w', encoding='utf-8') as f:
-            json.dump(buildings_data, f, ensure_ascii=False, indent=4)
-        print("\nVeri, 'test_buildings.geojson' dosyasına kaydedildi.")
-
 def calculate_energy_potential(buildings_geojson):
     """
     Gelen GeoJSON verisi üzerinden enerji potansiyelini hesaplar.
+    Hatalı geometrileri filtreler ve CRS'i doğru şekilde tanımlar.
+    
+    Args:
+        buildings_geojson (dict): Binaları içeren GeoJSON formatında bir sözlük.
+        
+    Returns:
+        dict: Hesaplanmış enerji potansiyelini içeren GeoJSON.
     """
-    gdf = GeoDataFrame.from_features(buildings_geojson['features'])
+    # Adım 1: Hatalı veya geçersiz geometriye sahip özellikleri filtrele
+    valid_features = []
+    for feature in buildings_geojson.get('features', []):
+        try:
+            geom = shape(feature['geometry'])
+            if geom and geom.is_valid:
+                valid_features.append(feature)
+        except Exception as e:
+            # Hatalı geometrileri sessizce atla
+            continue
+
+    if not valid_features:
+        return {"features": [], "type": "FeatureCollection"}
+
+    # Adım 2: Geçerli özellikleri GeoDataFrame'e dönüştür
+    gdf = gpd.GeoDataFrame.from_features(valid_features)
+
+    # Adım 3: Koordinat sistemini tanımla
+    # GeoJSON verisi varsayılan olarak WGS 84 (EPSG:4326) sistemindedir.
+    gdf.set_crs(epsg=4326, inplace=True)
     
-    # Bina alanını hesapla
-    # Bu, WGS84 koordinat sisteminde hatalı olabilir, sunum için yeterli
-    # Gerçek uygulamada daha doğru yöntemler kullanılır
-    gdf['area_sqm'] = gdf.geometry.area * 111320**2 
+    # Adım 4: Alan hesaplaması için doğru metrik CRS'ye dönüştür
+    # İstanbul için uygun bir UTM projeksiyonu (EPSG:32635)
+    gdf_projected = gdf.to_crs(epsg=32635)
+    gdf['area_sqm'] = gdf_projected.geometry.area
     
-    # Basit bir enerji potansiyeli formülü (kWh/yıl)
-    # Varsayım: İstanbul için ortalama güneşlenme saatleri ve verim oranı
-    # 1.6: kWp başına düşen ortalama güneş enerjisi
-    # 1200: Yıllık güneşlenme saatleri
-    # 0.15: Panel verimi
+    # Adım 5: Basit bir enerji potansiyeli formülü uygula
+    # Bu sabit faktör yerine NASA verisini kullanmak daha doğru olacaktır.
     potential_factor = 1.6 * 1200 * 0.15 
     gdf['potential_kwh'] = gdf['area_sqm'] * potential_factor
     
+    # Adım 6: Seviye ataması yap ve GeoJSON olarak döndür
     gdf['potential_level'] = gdf['potential_kwh'].apply(
-        lambda x: 'high' if x > 2000 else ('medium' if x > 500 else 'low')
+        lambda x: 'high' if x > 20000 else ('medium' if x > 5000 else 'low')
     )
     
     return json.loads(gdf.to_json())
-
-
 def get_nasa_power_data(lat, lon, start_date, end_date):
     """
     Belirli bir konum ve tarih aralığı için NASA POWER API'sinden

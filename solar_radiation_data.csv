@@ -1,0 +1,10 @@
+date,solar_radiation_kwh_m2_day
+2023-01-01,1.5
+2023-01-02,1.8
+2023-01-03,2.1
+...
+2023-07-15,6.5
+...
+2023-12-31,1.2
+
+#solar_radiation_kwh_m2_day: O günkü ortalama güneşlenme miktarı (metrekare başına kilowatt-saat cinsinden).
