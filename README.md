@@ -1,9 +1,3 @@
-### Proje README Dosyasındaki Değişiklik
-
-Proje `README.md` dosyanın **"Kurulum ve Başlatma"** başlığını aşağıdaki gibi güncelleyelim. Bu yeni versiyon, Conda kullanıcıları için çok daha net bir yol haritası sunar.
-
------
-
 # Yeşil Enerji Envanteri ve Potansiyel Haritası
 
 Bu proje, Birleşmiş Milletler'in **"Sürdürülebilir Enerji"** ve **"İklim Eylemi"** hedeflerine katkıda bulunmak amacıyla geliştirilmiş bir hackathon projesidir. Kullanıcılar, harita üzerinde bir alana yaklaştıklarında, o alandaki binaların potansiyel enerji üretim seviyesini (düşük, orta, yüksek) görebilirler.
