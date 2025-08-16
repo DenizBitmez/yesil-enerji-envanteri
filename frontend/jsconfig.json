@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "ES6",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "components/ui/**/*.jsx",
+    "components/theme-provider.jsx",
+    "pages/**/*.jsx",
+    "app/**/*.jsx"
+  ],
+  "exclude": ["node_modules"]
+}
