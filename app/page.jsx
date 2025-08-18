@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { SolarMap } from "../components/solar-map";
 import { SolarDetails } from "../components/solar-details";
 import { SolarCharts } from "../components/solar-charts";
 import { ThemeToggle } from "../components/theme-toggle";
-import { solarSpots } from "../data/solar-data";
+import solarSpotsJSON from "../data/solar-analysis.json";
 import { Button } from "../components/ui/button";
 import {
   Select,
@@ -14,12 +14,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../components/ui/select";
+import AnalysisButton from "../components/AnalysisButton";
 
 export default function HomePage() {
   const [selectedSpot, setSelectedSpot] = useState(null);
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
   const [sortBy, setSortBy] = useState("city");
   const [filterBy, setFilterBy] = useState("all");
+
+  console.log(solarSpotsJSON);
+
+  const solarSpots = solarSpotsJSON.data;
 
   const filteredAndSortedSpots = useMemo(() => {
     let filtered = solarSpots;
@@ -84,7 +89,6 @@ export default function HomePage() {
               <SelectItem value="all">All Locations</SelectItem>
               <SelectItem value="suitable">Suitable Only</SelectItem>
               <SelectItem value="roof">Roof Areas</SelectItem>
-              <SelectItem value="openLand">Open Land</SelectItem>
             </SelectContent>
           </Select>
 
@@ -158,6 +162,8 @@ export default function HomePage() {
       <div className="border-t bg-background">
         <SolarCharts data={filteredAndSortedSpots} />
       </div>
+
+      <AnalysisButton />
     </div>
   );
 }

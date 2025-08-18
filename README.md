@@ -45,8 +45,8 @@ Türkiye, yıllık ortalama **7.5 kWh/m²** güneşlenme potansiyeliyle güneş 
 1. **Repository'yi klonlayın:**
 
 ```bash
-git clone https://github.com/DenizBitmez/yesil-enerji-envanteri
-cd yesil-enerji-envanteri/frontend
+git clone https://github.com/talhaceliktas/yesil-enerji-envanteri-web
+cd yesil-enerji-envanteri-web
 ```
 
 2. **Bağımlılıkları yükleyin:**
@@ -91,6 +91,7 @@ yarn dev
 - ✅ Türkiye haritası odaklı görünüm
 - ✅ Responsive tasarım
 - ✅ Modern UI/UX
+- ✅ Türkiye şehirlerini analiz etme.
 
 ## 🧪 Geliştirme
 

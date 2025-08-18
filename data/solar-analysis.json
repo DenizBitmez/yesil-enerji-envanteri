@@ -1,0 +1,1303 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "01",
+      "city": "Adana",
+      "coordinates": {
+        "lat": 37,
+        "lng": 35.3213
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.45,
+      "efficiency": 79,
+      "annualProduction": 1624,
+      "cost": 14000,
+      "paybackPeriod": 6.6,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "02",
+      "city": "Adıyaman",
+      "coordinates": {
+        "lat": 37.7648,
+        "lng": 38.2786
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.52,
+      "efficiency": 78,
+      "annualProduction": 1651,
+      "cost": 14000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "03",
+      "city": "Afyonkarahisar",
+      "coordinates": {
+        "lat": 38.7569,
+        "lng": 30.5433
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.22,
+      "efficiency": 82,
+      "annualProduction": 1540,
+      "cost": 12000,
+      "paybackPeriod": 7,
+      "co2Reduction": 0.66,
+      "suitable": true
+    },
+    {
+      "id": "04",
+      "city": "Ağrı",
+      "coordinates": {
+        "lat": 39.7191,
+        "lng": 43.0503
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.89,
+      "efficiency": 81,
+      "annualProduction": 1419,
+      "cost": 13000,
+      "paybackPeriod": 7.5,
+      "co2Reduction": 0.61,
+      "suitable": false
+    },
+    {
+      "id": "05",
+      "city": "Amasya",
+      "coordinates": {
+        "lat": 40.6539,
+        "lng": 35.8331
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.84,
+      "efficiency": 81,
+      "annualProduction": 1402,
+      "cost": 13000,
+      "paybackPeriod": 7.6,
+      "co2Reduction": 0.6,
+      "suitable": false
+    },
+    {
+      "id": "06",
+      "city": "Ankara",
+      "coordinates": {
+        "lat": 39.9208,
+        "lng": 32.8541
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.2,
+      "efficiency": 82,
+      "annualProduction": 1532,
+      "cost": 12000,
+      "paybackPeriod": 7,
+      "co2Reduction": 0.66,
+      "suitable": true
+    },
+    {
+      "id": "07",
+      "city": "Antalya",
+      "coordinates": {
+        "lat": 36.8841,
+        "lng": 30.7056
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.53,
+      "efficiency": 79,
+      "annualProduction": 1654,
+      "cost": 11000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "08",
+      "city": "Artvin",
+      "coordinates": {
+        "lat": 41.1828,
+        "lng": 41.8183
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.75,
+      "efficiency": 82,
+      "annualProduction": 1369,
+      "cost": 13000,
+      "paybackPeriod": 7.8,
+      "co2Reduction": 0.59,
+      "suitable": false
+    },
+    {
+      "id": "09",
+      "city": "Aydın",
+      "coordinates": {
+        "lat": 37.856,
+        "lng": 27.8416
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.58,
+      "efficiency": 79,
+      "annualProduction": 1673,
+      "cost": 11000,
+      "paybackPeriod": 6.4,
+      "co2Reduction": 0.72,
+      "suitable": true
+    },
+    {
+      "id": "10",
+      "city": "Balıkesir",
+      "coordinates": {
+        "lat": 39.6484,
+        "lng": 27.8826
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.07,
+      "efficiency": 81,
+      "annualProduction": 1487,
+      "cost": 16000,
+      "paybackPeriod": 7.2,
+      "co2Reduction": 0.64,
+      "suitable": true
+    },
+    {
+      "id": "11",
+      "city": "Bilecik",
+      "coordinates": {
+        "lat": 40.15,
+        "lng": 29.9833
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.89,
+      "efficiency": 81,
+      "annualProduction": 1421,
+      "cost": 13000,
+      "paybackPeriod": 7.5,
+      "co2Reduction": 0.61,
+      "suitable": false
+    },
+    {
+      "id": "12",
+      "city": "Bingöl",
+      "coordinates": {
+        "lat": 38.8848,
+        "lng": 40.4938
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.96,
+      "efficiency": 79,
+      "annualProduction": 1447,
+      "cost": 13000,
+      "paybackPeriod": 7.4,
+      "co2Reduction": 0.62,
+      "suitable": false
+    },
+    {
+      "id": "13",
+      "city": "Bitlis",
+      "coordinates": {
+        "lat": 38.4,
+        "lng": 42.1167
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.08,
+      "efficiency": 81,
+      "annualProduction": 1489,
+      "cost": 13000,
+      "paybackPeriod": 7.2,
+      "co2Reduction": 0.64,
+      "suitable": true
+    },
+    {
+      "id": "14",
+      "city": "Bolu",
+      "coordinates": {
+        "lat": 40.7359,
+        "lng": 31.6111
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.68,
+      "efficiency": 83,
+      "annualProduction": 1343,
+      "cost": 13000,
+      "paybackPeriod": 8,
+      "co2Reduction": 0.58,
+      "suitable": false
+    },
+    {
+      "id": "15",
+      "city": "Burdur",
+      "coordinates": {
+        "lat": 37.7203,
+        "lng": 30.29
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.61,
+      "efficiency": 82,
+      "annualProduction": 1684,
+      "cost": 13000,
+      "paybackPeriod": 6.4,
+      "co2Reduction": 0.72,
+      "suitable": true
+    },
+    {
+      "id": "16",
+      "city": "Bursa",
+      "coordinates": {
+        "lat": 40.195,
+        "lng": 29.06
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.79,
+      "efficiency": 82,
+      "annualProduction": 1385,
+      "cost": 17000,
+      "paybackPeriod": 7.7,
+      "co2Reduction": 0.6,
+      "suitable": false
+    },
+    {
+      "id": "17",
+      "city": "Çanakkale",
+      "coordinates": {
+        "lat": 40.1553,
+        "lng": 26.4142
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.36,
+      "efficiency": 82,
+      "annualProduction": 1590,
+      "cost": 14000,
+      "paybackPeriod": 6.7,
+      "co2Reduction": 0.68,
+      "suitable": true
+    },
+    {
+      "id": "18",
+      "city": "Çankırı",
+      "coordinates": {
+        "lat": 40.6013,
+        "lng": 33.6134
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.11,
+      "efficiency": 81,
+      "annualProduction": 1500,
+      "cost": 13000,
+      "paybackPeriod": 7.1,
+      "co2Reduction": 0.65,
+      "suitable": true
+    },
+    {
+      "id": "19",
+      "city": "Çorum",
+      "coordinates": {
+        "lat": 40.5506,
+        "lng": 34.9556
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4,
+      "efficiency": 81,
+      "annualProduction": 1459,
+      "cost": 13000,
+      "paybackPeriod": 7.3,
+      "co2Reduction": 0.63,
+      "suitable": true
+    },
+    {
+      "id": "20",
+      "city": "Denizli",
+      "coordinates": {
+        "lat": 37.7765,
+        "lng": 29.0864
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.31,
+      "efficiency": 81,
+      "annualProduction": 1574,
+      "cost": 14000,
+      "paybackPeriod": 6.8,
+      "co2Reduction": 0.68,
+      "suitable": true
+    },
+    {
+      "id": "21",
+      "city": "Diyarbakır",
+      "coordinates": {
+        "lat": 37.9144,
+        "lng": 40.2306
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.28,
+      "efficiency": 78,
+      "annualProduction": 1563,
+      "cost": 13000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "22",
+      "city": "Edirne",
+      "coordinates": {
+        "lat": 41.6772,
+        "lng": 26.5557
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.95,
+      "efficiency": 81,
+      "annualProduction": 1442,
+      "cost": 14000,
+      "paybackPeriod": 7.4,
+      "co2Reduction": 0.62,
+      "suitable": false
+    },
+    {
+      "id": "23",
+      "city": "Elazığ",
+      "coordinates": {
+        "lat": 38.6789,
+        "lng": 39.2222
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.28,
+      "efficiency": 80,
+      "annualProduction": 1564,
+      "cost": 13000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "24",
+      "city": "Erzincan",
+      "coordinates": {
+        "lat": 39.75,
+        "lng": 39.5
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.1,
+      "efficiency": 81,
+      "annualProduction": 1496,
+      "cost": 13000,
+      "paybackPeriod": 7.2,
+      "co2Reduction": 0.64,
+      "suitable": true
+    },
+    {
+      "id": "25",
+      "city": "Erzurum",
+      "coordinates": {
+        "lat": 39.9083,
+        "lng": 41.2769
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.78,
+      "efficiency": 83,
+      "annualProduction": 1380,
+      "cost": 17000,
+      "paybackPeriod": 7.8,
+      "co2Reduction": 0.59,
+      "suitable": false
+    },
+    {
+      "id": "26",
+      "city": "Eskişehir",
+      "coordinates": {
+        "lat": 39.7767,
+        "lng": 30.5206
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.12,
+      "efficiency": 82,
+      "annualProduction": 1503,
+      "cost": 14000,
+      "paybackPeriod": 7.1,
+      "co2Reduction": 0.65,
+      "suitable": true
+    },
+    {
+      "id": "27",
+      "city": "Gaziantep",
+      "coordinates": {
+        "lat": 37.0662,
+        "lng": 37.3833
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.52,
+      "efficiency": 80,
+      "annualProduction": 1650,
+      "cost": 13000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "28",
+      "city": "Giresun",
+      "coordinates": {
+        "lat": 40.9128,
+        "lng": 38.3895
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.06,
+      "efficiency": 82,
+      "annualProduction": 1118,
+      "cost": 13000,
+      "paybackPeriod": 9.6,
+      "co2Reduction": 0.48,
+      "suitable": false
+    },
+    {
+      "id": "29",
+      "city": "Gümüşhane",
+      "coordinates": {
+        "lat": 40.46,
+        "lng": 39.4819
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.78,
+      "efficiency": 83,
+      "annualProduction": 1378,
+      "cost": 13000,
+      "paybackPeriod": 7.8,
+      "co2Reduction": 0.59,
+      "suitable": false
+    },
+    {
+      "id": "30",
+      "city": "Hakkâri",
+      "coordinates": {
+        "lat": 37.5744,
+        "lng": 43.74
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.26,
+      "efficiency": 82,
+      "annualProduction": 1557,
+      "cost": 13000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "31",
+      "city": "Hatay",
+      "coordinates": {
+        "lat": 36.2028,
+        "lng": 36.16
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.48,
+      "efficiency": 79,
+      "annualProduction": 1636,
+      "cost": 14000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "32",
+      "city": "Isparta",
+      "coordinates": {
+        "lat": 37.7648,
+        "lng": 30.5566
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.34,
+      "efficiency": 82,
+      "annualProduction": 1583,
+      "cost": 14000,
+      "paybackPeriod": 6.8,
+      "co2Reduction": 0.68,
+      "suitable": true
+    },
+    {
+      "id": "33",
+      "city": "Mersin",
+      "coordinates": {
+        "lat": 36.8,
+        "lng": 34.6333
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.63,
+      "efficiency": 81,
+      "annualProduction": 1705,
+      "cost": 12000,
+      "paybackPeriod": 6.4,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "34",
+      "city": "İstanbul",
+      "coordinates": {
+        "lat": 41.0053,
+        "lng": 28.977
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.96,
+      "efficiency": 82,
+      "annualProduction": 1446,
+      "cost": 17000,
+      "paybackPeriod": 7.4,
+      "co2Reduction": 0.62,
+      "suitable": false
+    },
+    {
+      "id": "35",
+      "city": "İzmir",
+      "coordinates": {
+        "lat": 38.4192,
+        "lng": 27.1287
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.57,
+      "efficiency": 80,
+      "annualProduction": 1666,
+      "cost": 16000,
+      "paybackPeriod": 6.4,
+      "co2Reduction": 0.72,
+      "suitable": true
+    },
+    {
+      "id": "36",
+      "city": "Kars",
+      "coordinates": {
+        "lat": 40.6083,
+        "lng": 43.0972
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.84,
+      "efficiency": 83,
+      "annualProduction": 1402,
+      "cost": 13000,
+      "paybackPeriod": 7.6,
+      "co2Reduction": 0.6,
+      "suitable": false
+    },
+    {
+      "id": "37",
+      "city": "Kastamonu",
+      "coordinates": {
+        "lat": 41.3781,
+        "lng": 33.775
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.75,
+      "efficiency": 82,
+      "annualProduction": 1370,
+      "cost": 13000,
+      "paybackPeriod": 7.8,
+      "co2Reduction": 0.59,
+      "suitable": false
+    },
+    {
+      "id": "38",
+      "city": "Kayseri",
+      "coordinates": {
+        "lat": 38.7312,
+        "lng": 35.4787
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.12,
+      "efficiency": 81,
+      "annualProduction": 1506,
+      "cost": 15000,
+      "paybackPeriod": 7.1,
+      "co2Reduction": 0.65,
+      "suitable": true
+    },
+    {
+      "id": "39",
+      "city": "Kırklareli",
+      "coordinates": {
+        "lat": 41.7333,
+        "lng": 27.2167
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.99,
+      "efficiency": 82,
+      "annualProduction": 1457,
+      "cost": 16000,
+      "paybackPeriod": 7.4,
+      "co2Reduction": 0.63,
+      "suitable": false
+    },
+    {
+      "id": "40",
+      "city": "Kırşehir",
+      "coordinates": {
+        "lat": 39.1422,
+        "lng": 34.1703
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.43,
+      "efficiency": 82,
+      "annualProduction": 1618,
+      "cost": 12000,
+      "paybackPeriod": 6.6,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "41",
+      "city": "Kocaeli",
+      "coordinates": {
+        "lat": 40.765,
+        "lng": 29.94
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.67,
+      "efficiency": 81,
+      "annualProduction": 1339,
+      "cost": 17000,
+      "paybackPeriod": 8,
+      "co2Reduction": 0.58,
+      "suitable": false
+    },
+    {
+      "id": "42",
+      "city": "Konya",
+      "coordinates": {
+        "lat": 37.8716,
+        "lng": 32.4847
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.49,
+      "efficiency": 81,
+      "annualProduction": 1637,
+      "cost": 9000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "43",
+      "city": "Kütahya",
+      "coordinates": {
+        "lat": 39.42,
+        "lng": 29.9833
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.09,
+      "efficiency": 82,
+      "annualProduction": 1493,
+      "cost": 13000,
+      "paybackPeriod": 7.2,
+      "co2Reduction": 0.64,
+      "suitable": true
+    },
+    {
+      "id": "44",
+      "city": "Malatya",
+      "coordinates": {
+        "lat": 38.355,
+        "lng": 38.3092
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.27,
+      "efficiency": 81,
+      "annualProduction": 1559,
+      "cost": 12000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "45",
+      "city": "Manisa",
+      "coordinates": {
+        "lat": 38.6191,
+        "lng": 27.4289
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.1,
+      "efficiency": 80,
+      "annualProduction": 1496,
+      "cost": 14000,
+      "paybackPeriod": 7.2,
+      "co2Reduction": 0.64,
+      "suitable": true
+    },
+    {
+      "id": "46",
+      "city": "Kahramanmaraş",
+      "coordinates": {
+        "lat": 37.5833,
+        "lng": 36.9333
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.44,
+      "efficiency": 79,
+      "annualProduction": 1620,
+      "cost": 11000,
+      "paybackPeriod": 6.6,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "47",
+      "city": "Mardin",
+      "coordinates": {
+        "lat": 37.3122,
+        "lng": 40.735
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.51,
+      "efficiency": 79,
+      "annualProduction": 1647,
+      "cost": 11000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "48",
+      "city": "Muğla",
+      "coordinates": {
+        "lat": 37.215,
+        "lng": 28.3636
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.55,
+      "efficiency": 81,
+      "annualProduction": 1662,
+      "cost": 14000,
+      "paybackPeriod": 6.4,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "49",
+      "city": "Muş",
+      "coordinates": {
+        "lat": 38.7439,
+        "lng": 41.5069
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.79,
+      "efficiency": 80,
+      "annualProduction": 1385,
+      "cost": 17000,
+      "paybackPeriod": 7.7,
+      "co2Reduction": 0.6,
+      "suitable": false
+    },
+    {
+      "id": "50",
+      "city": "Nevşehir",
+      "coordinates": {
+        "lat": 38.6244,
+        "lng": 34.7142
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.21,
+      "efficiency": 82,
+      "annualProduction": 1535,
+      "cost": 12000,
+      "paybackPeriod": 7,
+      "co2Reduction": 0.66,
+      "suitable": true
+    },
+    {
+      "id": "51",
+      "city": "Niğde",
+      "coordinates": {
+        "lat": 37.9667,
+        "lng": 34.6833
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.6,
+      "efficiency": 82,
+      "annualProduction": 1681,
+      "cost": 11000,
+      "paybackPeriod": 6.4,
+      "co2Reduction": 0.72,
+      "suitable": true
+    },
+    {
+      "id": "52",
+      "city": "Ordu",
+      "coordinates": {
+        "lat": 40.9833,
+        "lng": 37.8833
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.29,
+      "efficiency": 82,
+      "annualProduction": 1199,
+      "cost": 17000,
+      "paybackPeriod": 8.9,
+      "co2Reduction": 0.52,
+      "suitable": false
+    },
+    {
+      "id": "53",
+      "city": "Rize",
+      "coordinates": {
+        "lat": 41.0201,
+        "lng": 40.5234
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 2.88,
+      "efficiency": 83,
+      "annualProduction": 1052,
+      "cost": 18000,
+      "paybackPeriod": 10.2,
+      "co2Reduction": 0.45,
+      "suitable": false
+    },
+    {
+      "id": "54",
+      "city": "Sakarya",
+      "coordinates": {
+        "lat": 40.7766,
+        "lng": 30.3945
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.61,
+      "efficiency": 81,
+      "annualProduction": 1319,
+      "cost": 16000,
+      "paybackPeriod": 8.1,
+      "co2Reduction": 0.57,
+      "suitable": false
+    },
+    {
+      "id": "55",
+      "city": "Samsun",
+      "coordinates": {
+        "lat": 41.2867,
+        "lng": 36.33
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.43,
+      "efficiency": 82,
+      "annualProduction": 1252,
+      "cost": 17000,
+      "paybackPeriod": 8.6,
+      "co2Reduction": 0.54,
+      "suitable": false
+    },
+    {
+      "id": "56",
+      "city": "Siirt",
+      "coordinates": {
+        "lat": 37.9333,
+        "lng": 41.95
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.25,
+      "efficiency": 78,
+      "annualProduction": 1550,
+      "cost": 11000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "57",
+      "city": "Sinop",
+      "coordinates": {
+        "lat": 42.0231,
+        "lng": 35.1533
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.67,
+      "efficiency": 82,
+      "annualProduction": 1339,
+      "cost": 17000,
+      "paybackPeriod": 8,
+      "co2Reduction": 0.58,
+      "suitable": false
+    },
+    {
+      "id": "58",
+      "city": "Sivas",
+      "coordinates": {
+        "lat": 39.7477,
+        "lng": 37.0179
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.06,
+      "efficiency": 82,
+      "annualProduction": 1483,
+      "cost": 12000,
+      "paybackPeriod": 7.2,
+      "co2Reduction": 0.64,
+      "suitable": true
+    },
+    {
+      "id": "59",
+      "city": "Tekirdağ",
+      "coordinates": {
+        "lat": 40.9833,
+        "lng": 27.5167
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.85,
+      "efficiency": 82,
+      "annualProduction": 1406,
+      "cost": 16000,
+      "paybackPeriod": 7.6,
+      "co2Reduction": 0.6,
+      "suitable": false
+    },
+    {
+      "id": "60",
+      "city": "Tokat",
+      "coordinates": {
+        "lat": 40.3167,
+        "lng": 36.55
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.83,
+      "efficiency": 82,
+      "annualProduction": 1400,
+      "cost": 15000,
+      "paybackPeriod": 7.7,
+      "co2Reduction": 0.6,
+      "suitable": false
+    },
+    {
+      "id": "61",
+      "city": "Trabzon",
+      "coordinates": {
+        "lat": 41.0017,
+        "lng": 39.7178
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.22,
+      "efficiency": 83,
+      "annualProduction": 1174,
+      "cost": 14000,
+      "paybackPeriod": 9.1,
+      "co2Reduction": 0.5,
+      "suitable": false
+    },
+    {
+      "id": "62",
+      "city": "Tunceli",
+      "coordinates": {
+        "lat": 39.1081,
+        "lng": 39.54
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.18,
+      "efficiency": 80,
+      "annualProduction": 1524,
+      "cost": 14000,
+      "paybackPeriod": 7,
+      "co2Reduction": 0.66,
+      "suitable": true
+    },
+    {
+      "id": "63",
+      "city": "Şanlıurfa",
+      "coordinates": {
+        "lat": 37.1675,
+        "lng": 38.795
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.53,
+      "efficiency": 79,
+      "annualProduction": 1655,
+      "cost": 11000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "64",
+      "city": "Uşak",
+      "coordinates": {
+        "lat": 38.68,
+        "lng": 29.405
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.48,
+      "efficiency": 81,
+      "annualProduction": 1636,
+      "cost": 14000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "65",
+      "city": "Van",
+      "coordinates": {
+        "lat": 38.5011,
+        "lng": 43.4167
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.35,
+      "efficiency": 82,
+      "annualProduction": 1586,
+      "cost": 14000,
+      "paybackPeriod": 6.8,
+      "co2Reduction": 0.68,
+      "suitable": true
+    },
+    {
+      "id": "66",
+      "city": "Yozgat",
+      "coordinates": {
+        "lat": 39.8181,
+        "lng": 34.8147
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.13,
+      "efficiency": 83,
+      "annualProduction": 1508,
+      "cost": 14000,
+      "paybackPeriod": 7.1,
+      "co2Reduction": 0.65,
+      "suitable": true
+    },
+    {
+      "id": "67",
+      "city": "Zonguldak",
+      "coordinates": {
+        "lat": 41.4564,
+        "lng": 31.7987
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.76,
+      "efficiency": 83,
+      "annualProduction": 1372,
+      "cost": 17000,
+      "paybackPeriod": 7.8,
+      "co2Reduction": 0.59,
+      "suitable": false
+    },
+    {
+      "id": "68",
+      "city": "Aksaray",
+      "coordinates": {
+        "lat": 38.3687,
+        "lng": 34.0369
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.49,
+      "efficiency": 81,
+      "annualProduction": 1640,
+      "cost": 11000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.7,
+      "suitable": true
+    },
+    {
+      "id": "69",
+      "city": "Bayburt",
+      "coordinates": {
+        "lat": 40.255,
+        "lng": 40.2242
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.96,
+      "efficiency": 83,
+      "annualProduction": 1444,
+      "cost": 12000,
+      "paybackPeriod": 7.4,
+      "co2Reduction": 0.62,
+      "suitable": false
+    },
+    {
+      "id": "70",
+      "city": "Karaman",
+      "coordinates": {
+        "lat": 37.1811,
+        "lng": 33.215
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.53,
+      "efficiency": 82,
+      "annualProduction": 1655,
+      "cost": 12000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "71",
+      "city": "Kırıkkale",
+      "coordinates": {
+        "lat": 39.8461,
+        "lng": 33.515
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.26,
+      "efficiency": 82,
+      "annualProduction": 1556,
+      "cost": 12000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "72",
+      "city": "Batman",
+      "coordinates": {
+        "lat": 37.8872,
+        "lng": 41.1322
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.29,
+      "efficiency": 78,
+      "annualProduction": 1567,
+      "cost": 11000,
+      "paybackPeriod": 6.8,
+      "co2Reduction": 0.67,
+      "suitable": true
+    },
+    {
+      "id": "73",
+      "city": "Şırnak",
+      "coordinates": {
+        "lat": 37.5211,
+        "lng": 42.4611
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.31,
+      "efficiency": 79,
+      "annualProduction": 1571,
+      "cost": 11000,
+      "paybackPeriod": 6.8,
+      "co2Reduction": 0.68,
+      "suitable": true
+    },
+    {
+      "id": "74",
+      "city": "Bartın",
+      "coordinates": {
+        "lat": 41.5811,
+        "lng": 32.4611
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.67,
+      "efficiency": 81,
+      "annualProduction": 1339,
+      "cost": 17000,
+      "paybackPeriod": 8,
+      "co2Reduction": 0.58,
+      "suitable": false
+    },
+    {
+      "id": "75",
+      "city": "Ardahan",
+      "coordinates": {
+        "lat": 41.11,
+        "lng": 42.7025
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.54,
+      "efficiency": 83,
+      "annualProduction": 1293,
+      "cost": 18000,
+      "paybackPeriod": 8.3,
+      "co2Reduction": 0.56,
+      "suitable": false
+    },
+    {
+      "id": "76",
+      "city": "Iğdır",
+      "coordinates": {
+        "lat": 39.8886,
+        "lng": 44.0048
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.68,
+      "efficiency": 82,
+      "annualProduction": 1343,
+      "cost": 17000,
+      "paybackPeriod": 8,
+      "co2Reduction": 0.58,
+      "suitable": false
+    },
+    {
+      "id": "77",
+      "city": "Yalova",
+      "coordinates": {
+        "lat": 40.65,
+        "lng": 29.2667
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.86,
+      "efficiency": 81,
+      "annualProduction": 1407,
+      "cost": 16000,
+      "paybackPeriod": 7.6,
+      "co2Reduction": 0.61,
+      "suitable": false
+    },
+    {
+      "id": "78",
+      "city": "Karabük",
+      "coordinates": {
+        "lat": 41.2,
+        "lng": 32.6167
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.86,
+      "efficiency": 81,
+      "annualProduction": 1411,
+      "cost": 16000,
+      "paybackPeriod": 7.6,
+      "co2Reduction": 0.61,
+      "suitable": false
+    },
+    {
+      "id": "79",
+      "city": "Kilis",
+      "coordinates": {
+        "lat": 36.7167,
+        "lng": 37.1167
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.52,
+      "efficiency": 79,
+      "annualProduction": 1650,
+      "cost": 11000,
+      "paybackPeriod": 6.5,
+      "co2Reduction": 0.71,
+      "suitable": true
+    },
+    {
+      "id": "80",
+      "city": "Osmaniye",
+      "coordinates": {
+        "lat": 37.0667,
+        "lng": 36.2333
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 4.23,
+      "efficiency": 80,
+      "annualProduction": 1544,
+      "cost": 11000,
+      "paybackPeriod": 6.9,
+      "co2Reduction": 0.66,
+      "suitable": true
+    },
+    {
+      "id": "81",
+      "city": "Düzce",
+      "coordinates": {
+        "lat": 40.8433,
+        "lng": 31.1567
+      },
+      "areaType": "roof",
+      "sunHoursPerDay": 3.47,
+      "efficiency": 81,
+      "annualProduction": 1265,
+      "cost": 17000,
+      "paybackPeriod": 8.5,
+      "co2Reduction": 0.54,
+      "suitable": false
+    }
+  ],
+  "errors": [],
+  "total": 80
+}
