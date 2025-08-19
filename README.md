@@ -101,13 +101,12 @@ yarn dev
 npm run dev      # Geliştirme sunucusu
 npm run build    # Üretim build'i
 npm run start    # Üretim sunucusu
-npm run lint     # Kod kalitesi kontrolü
 ```
 
 ## 📊 Veri Kaynakları
 
 - **OpenStreetMap**: Bina geometri verileri
-- **NASA POWER**: Meteorolojik ve güneş radyasyonu verileri
+- **PVGIS API**: Bölgelerin Işınım Oranları
 
 ## 📄 Lisans
 
