@@ -5,7 +5,8 @@ import { SolarMap } from "../components/solar-map";
 import { SolarDetails } from "../components/solar-details";
 import { SolarCharts } from "../components/solar-charts";
 import { ThemeToggle } from "../components/theme-toggle";
-import solarSpotsJSON from "../data/solar-analysis.json";
+import citiesJSON from "../data/cities.json"; // Load static cities
+import { fetchSolarData } from "../lib/nasa"; // Live data fetcher
 import { Button } from "../components/ui/button";
 import {
   Select,
@@ -22,12 +23,72 @@ export default function HomePage() {
   const [sortBy, setSortBy] = useState("city");
   const [filterBy, setFilterBy] = useState("all");
 
-  console.log(solarSpotsJSON);
+  // State for dynamic data
+  // Initialize with cities but "loading" metrics
+  const [solarSpots, setSolarSpots] = useState(
+    citiesJSON.cities.map(city => ({
+      ...city,
+      cost: city.baseCost, // Map baseCost to cost for compatibility
+      sunHoursPerDay: 0, // Placeholder
+      efficiency: 0,
+      annualProduction: 0,
+      paybackPeriod: 0,
+      co2Reduction: 0,
+      suitable: false,
+      isLoaded: false
+    }))
+  );
 
-  const solarSpots = solarSpotsJSON.data;
+  // Effect to fetch data progressively
+  useEffect(() => {
+    async function updateSpots() {
+      // Create a copy to update
+      // Optimization: For demo, update top 10 cities first, or random, or just all in parallel batches.
+      // Let's do batches of 5 to not spam too hard, but fast enough.
+      const citiesToUpdate = [...solarSpots];
+
+      // Parallel fetch limit (5 at a time)
+      const batchSize = 5;
+      for (let i = 0; i < citiesToUpdate.length; i += batchSize) {
+        const batch = citiesToUpdate.slice(i, i + batchSize);
+        await Promise.all(batch.map(async (city) => {
+          if (city.isLoaded) return; // Skip if already loaded
+
+          const data = await fetchSolarData(city.coordinates.lat, city.coordinates.lng);
+          if (data) {
+            // Find original city object in the main array to update it
+            const index = citiesToUpdate.findIndex(c => c.id === city.id);
+            if (index !== -1) {
+              // Calculate Payback: Cost / (Production * Price)
+              // Assume Electricity Price = $0.20 / kWh (Global Avg approximation)
+              const electricityPrice = 0.20;
+              const savings = data.annualProduction * electricityPrice;
+              const payback = savings > 0 ? parseFloat((city.baseCost / savings).toFixed(1)) : 0;
+
+              citiesToUpdate[index] = {
+                ...citiesToUpdate[index],
+                sunHoursPerDay: data.solarIrradiance,
+                efficiency: data.efficiency,
+                annualProduction: data.annualProduction,
+                co2Reduction: data.co2Reduction,
+                suitable: data.suitable,
+                paybackPeriod: payback,
+                isLoaded: true
+              };
+            }
+          }
+        }));
+        // Update state after every batch so user sees progress
+        setSolarSpots([...citiesToUpdate]);
+      }
+    }
+
+    updateSpots();
+  }, []); // Run once on mount
+
 
   const filteredAndSortedSpots = useMemo(() => {
-    let filtered = solarSpots;
+    let filtered = solarSpots.filter(s => s.isLoaded); // Only show loaded spots in charts/map to avoid zeros
 
     // Apply filters
     if (filterBy === "suitable") {
@@ -52,7 +113,7 @@ export default function HomePage() {
           return a.city.localeCompare(b.city);
       }
     });
-  }, [sortBy, filterBy]);
+  }, [sortBy, filterBy, solarSpots]);
 
   const handleSpotClick = (spot) => {
     setSelectedSpot(spot);
@@ -74,7 +135,7 @@ export default function HomePage() {
           <div>
             <h1 className="text-xl font-semibold">Solar Panel Mapping</h1>
             <p className="text-sm text-muted-foreground">
-              Interactive solar potential analysis
+              Interactive solar potential analysis (Powered by NASA)
             </p>
           </div>
           <ThemeToggle />
@@ -108,6 +169,14 @@ export default function HomePage() {
 
       <div className="flex-1 flex flex-col lg:flex-row">
         <div className="flex-1 relative min-h-[60vh] lg:min-h-full">
+          {/* Show loading overlay if very few spots loaded */}
+          {filteredAndSortedSpots.length < 5 && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20 z-10 pointer-events-none">
+              <div className="bg-background p-4 rounded-lg shadow-lg">
+                <p className="animate-pulse">Loading Live Data from NASA...</p>
+              </div>
+            </div>
+          )}
           <SolarMap
             solarSpots={filteredAndSortedSpots}
             onSpotClick={handleSpotClick}
@@ -136,7 +205,7 @@ export default function HomePage() {
                 <div>
                   <div className="font-medium">{spot.city}</div>
                   <div className="text-xs text-muted-foreground">
-                    {spot.sunHoursPerDay}h sun • {spot.efficiency}% efficiency
+                    {spot.sunHoursPerDay.toFixed(2)}h sun • {spot.efficiency}% efficiency
                   </div>
                 </div>
               </Button>
@@ -163,7 +232,7 @@ export default function HomePage() {
         <SolarCharts data={filteredAndSortedSpots} />
       </div>
 
-      <AnalysisButton />
+      <AnalysisButton data={solarSpots.filter(s => s.isLoaded)} />
     </div>
   );
 }

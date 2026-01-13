@@ -337,10 +337,12 @@ export function SolarCharts({ data }) {
         <Card className="bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-950 dark:to-orange-950 border-amber-200 dark:border-amber-800">
           <CardContent className="p-4 text-center">
             <div className="text-2xl font-bold text-amber-700 dark:text-amber-300">
-              {Math.round(
-                efficiencyData.reduce((acc, item) => acc + item.sunHours, 0) /
+              {efficiencyData.length > 0
+                ? Math.round(
+                  efficiencyData.reduce((acc, item) => acc + item.sunHours, 0) /
                   efficiencyData.length
-              )}
+                )
+                : 0}
             </div>
             <div className="text-sm text-amber-600 dark:text-amber-400">
               Avg Sun Hours
@@ -351,10 +353,12 @@ export function SolarCharts({ data }) {
         <Card className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950 dark:to-emerald-950 border-green-200 dark:border-green-800">
           <CardContent className="p-4 text-center">
             <div className="text-2xl font-bold text-green-700 dark:text-green-300">
-              {Math.round(
-                efficiencyData.reduce((acc, item) => acc + item.efficiency, 0) /
+              {efficiencyData.length > 0
+                ? Math.round(
+                  efficiencyData.reduce((acc, item) => acc + item.efficiency, 0) /
                   efficiencyData.length
-              )}
+                )
+                : 0}
               %
             </div>
             <div className="text-sm text-green-600 dark:text-green-400">
@@ -368,7 +372,7 @@ export function SolarCharts({ data }) {
             <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
               {Math.round(
                 efficiencyData.reduce((acc, item) => acc + item.production, 0) /
-                  1000
+                1000
               )}
               k
             </div>

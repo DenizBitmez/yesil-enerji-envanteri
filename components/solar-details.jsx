@@ -1,5 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { fetchSolarData } from "../lib/nasa";
+
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
 import {
@@ -10,6 +13,24 @@ import {
 } from "../components/ui/card";
 
 export function SolarDetails({ spot, onClose, isMobile = false }) {
+  const [nasaData, setNasaData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (spot) {
+      setLoading(true);
+      fetchSolarData(spot.coordinates.lat, spot.coordinates.lng)
+        .then((data) => {
+          setNasaData(data);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      setNasaData(null);
+    }
+  }, [spot]);
+
   if (!spot) {
     return (
       <div className="p-6">
@@ -48,7 +69,31 @@ export function SolarDetails({ spot, onClose, isMobile = false }) {
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <p className="text-muted-foreground">Sun Hours/Day</p>
-              <p className="font-semibold">{spot.sunHoursPerDay}h</p>
+              <p className="font-semibold">
+                {loading ? (
+                  <span className="animate-pulse">Loading...</span>
+                ) : nasaData ? (
+                  <span className="text-blue-600" title="Verified by NASA">
+                    {nasaData.solarIrradiance.toFixed(2)}h (NASA)
+                  </span>
+                ) : (
+                  `${spot.sunHoursPerDay}h`
+                )}
+              </p>
+            </div>
+            <div>
+              <p className="text-muted-foreground">Avg Temperature</p>
+              <p className="font-semibold">
+                {loading ? (
+                  <span className="animate-pulse">Loading...</span>
+                ) : nasaData ? (
+                  <span className="text-blue-600" title="Verified by NASA">
+                    {nasaData.temperature.toFixed(1)}°C
+                  </span>
+                ) : (
+                  "-"
+                )}
+              </p>
             </div>
             <div>
               <p className="text-muted-foreground">Area Type</p>
@@ -80,6 +125,14 @@ export function SolarDetails({ spot, onClose, isMobile = false }) {
               {spot.co2Reduction} tons CO₂ saved/year
             </p>
           </div>
+
+          {nasaData && (
+            <div className="pt-2 flex justify-end">
+              <Badge variant="outline" className="text-xs text-muted-foreground">
+                Data fetched from NASA POWER 🛰️
+              </Badge>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
