@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { SolarMap } from "../components/solar-map";
 import { SolarDetails } from "../components/solar-details";
 import { SolarCharts } from "../components/solar-charts";
@@ -18,6 +19,7 @@ import {
 import AnalysisButton from "../components/AnalysisButton";
 
 export default function HomePage() {
+  const { resolvedTheme } = useTheme();
   const [selectedSpot, setSelectedSpot] = useState(null);
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
   const [sortBy, setSortBy] = useState("city");
@@ -72,6 +74,7 @@ export default function HomePage() {
                 annualProduction: data.annualProduction,
                 co2Reduction: data.co2Reduction,
                 suitable: data.suitable,
+                areaType: data.areaType, // Update with dynamic type
                 paybackPeriod: payback,
                 isLoaded: true
               };
@@ -92,11 +95,11 @@ export default function HomePage() {
 
     // Apply filters
     if (filterBy === "suitable") {
-      filtered = filtered.filter((spot) => spot.suitable);
+      filtered = filtered.filter((spot) => spot.suitable === true);
     } else if (filterBy === "roof") {
-      filtered = filtered.filter((spot) => spot.areaType === "roof");
+      filtered = filtered.filter((spot) => spot.areaType?.toLowerCase() === "roof");
     } else if (filterBy === "openLand") {
-      filtered = filtered.filter((spot) => spot.areaType === "openLand");
+      filtered = filtered.filter((spot) => spot.areaType?.toLowerCase() === "openland");
     }
 
     // Apply sorting
@@ -181,6 +184,7 @@ export default function HomePage() {
             solarSpots={filteredAndSortedSpots}
             onSpotClick={handleSpotClick}
             selectedSpot={selectedSpot}
+            theme={resolvedTheme}
           />
         </div>
 
