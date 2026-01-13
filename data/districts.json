@@ -1,0 +1,412 @@
+{
+    "districts": [
+        {
+            "id": "34-01",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Kadıköy",
+            "coordinates": {
+                "lat": 40.9819,
+                "lng": 29.0256
+            },
+            "areaType": "roof",
+            "baseCost": 18000
+        },
+        {
+            "id": "34-02",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Beşiktaş",
+            "coordinates": {
+                "lat": 41.0422,
+                "lng": 29.0067
+            },
+            "areaType": "roof",
+            "baseCost": 19000
+        },
+        {
+            "id": "34-03",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Üsküdar",
+            "coordinates": {
+                "lat": 41.0264,
+                "lng": 29.0153
+            },
+            "areaType": "roof",
+            "baseCost": 18000
+        },
+        {
+            "id": "34-04",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Şişli",
+            "coordinates": {
+                "lat": 41.0575,
+                "lng": 28.9878
+            },
+            "areaType": "roof",
+            "baseCost": 18500
+        },
+        {
+            "id": "34-05",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Beyoğlu",
+            "coordinates": {
+                "lat": 41.0286,
+                "lng": 28.9744
+            },
+            "areaType": "roof",
+            "baseCost": 18500
+        },
+        {
+            "id": "34-06",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Sarıyer",
+            "coordinates": {
+                "lat": 41.1714,
+                "lng": 29.0553
+            },
+            "areaType": "roof",
+            "baseCost": 19500
+        },
+        {
+            "id": "34-07",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Maltepe",
+            "coordinates": {
+                "lat": 40.9500,
+                "lng": 29.1700
+            },
+            "areaType": "roof",
+            "baseCost": 17000
+        },
+        {
+            "id": "34-08",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Kartal",
+            "coordinates": {
+                "lat": 40.8900,
+                "lng": 29.1900
+            },
+            "areaType": "roof",
+            "baseCost": 17000
+        },
+        {
+            "id": "34-09",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Fatih",
+            "coordinates": {
+                "lat": 41.0100,
+                "lng": 28.9500
+            },
+            "areaType": "roof",
+            "baseCost": 16000
+        },
+        {
+            "id": "34-10",
+            "cityId": "34",
+            "city": "İstanbul",
+            "district": "Bakırköy",
+            "coordinates": {
+                "lat": 40.9800,
+                "lng": 28.8700
+            },
+            "areaType": "roof",
+            "baseCost": 18000
+        },
+        {
+            "id": "06-01",
+            "cityId": "06",
+            "city": "Ankara",
+            "district": "Çankaya",
+            "coordinates": {
+                "lat": 39.9200,
+                "lng": 32.8600
+            },
+            "areaType": "roof",
+            "baseCost": 15000
+        },
+        {
+            "id": "06-02",
+            "cityId": "06",
+            "city": "Ankara",
+            "district": "Keçiören",
+            "coordinates": {
+                "lat": 39.9800,
+                "lng": 32.8600
+            },
+            "areaType": "roof",
+            "baseCost": 14000
+        },
+        {
+            "id": "06-03",
+            "cityId": "06",
+            "city": "Ankara",
+            "district": "Yenimahalle",
+            "coordinates": {
+                "lat": 39.9600,
+                "lng": 32.8100
+            },
+            "areaType": "roof",
+            "baseCost": 14500
+        },
+        {
+            "id": "06-04",
+            "cityId": "06",
+            "city": "Ankara",
+            "district": "Mamak",
+            "coordinates": {
+                "lat": 39.9400,
+                "lng": 32.9300
+            },
+            "areaType": "roof",
+            "baseCost": 13500
+        },
+        {
+            "id": "06-05",
+            "cityId": "06",
+            "city": "Ankara",
+            "district": "Etimesgut",
+            "coordinates": {
+                "lat": 39.9500,
+                "lng": 32.6700
+            },
+            "areaType": "roof",
+            "baseCost": 14000
+        },
+        {
+            "id": "06-06",
+            "cityId": "06",
+            "city": "Ankara",
+            "district": "Gölbaşı",
+            "coordinates": {
+                "lat": 39.7900,
+                "lng": 32.8000
+            },
+            "areaType": "openLand",
+            "baseCost": 13000
+        },
+        {
+            "id": "35-01",
+            "cityId": "35",
+            "city": "İzmir",
+            "district": "Konak",
+            "coordinates": {
+                "lat": 38.4200,
+                "lng": 27.1400
+            },
+            "areaType": "roof",
+            "baseCost": 16000
+        },
+        {
+            "id": "35-02",
+            "cityId": "35",
+            "city": "İzmir",
+            "district": "Bornova",
+            "coordinates": {
+                "lat": 38.4600,
+                "lng": 27.2300
+            },
+            "areaType": "roof",
+            "baseCost": 15500
+        },
+        {
+            "id": "35-03",
+            "cityId": "35",
+            "city": "İzmir",
+            "district": "Karşıyaka",
+            "coordinates": {
+                "lat": 38.4600,
+                "lng": 27.1100
+            },
+            "areaType": "roof",
+            "baseCost": 16500
+        },
+        {
+            "id": "35-04",
+            "cityId": "35",
+            "city": "İzmir",
+            "district": "Buca",
+            "coordinates": {
+                "lat": 38.3900,
+                "lng": 27.1700
+            },
+            "areaType": "roof",
+            "baseCost": 15000
+        },
+        {
+            "id": "35-05",
+            "cityId": "35",
+            "city": "İzmir",
+            "district": "Çeşme",
+            "coordinates": {
+                "lat": 38.3200,
+                "lng": 26.3000
+            },
+            "areaType": "roof",
+            "baseCost": 18000
+        },
+        {
+            "id": "35-06",
+            "cityId": "35",
+            "city": "İzmir",
+            "district": "Urla",
+            "coordinates": {
+                "lat": 38.3200,
+                "lng": 26.7700
+            },
+            "areaType": "openLand",
+            "baseCost": 16000
+        },
+        {
+            "id": "07-01",
+            "cityId": "07",
+            "city": "Antalya",
+            "district": "Muratpaşa",
+            "coordinates": {
+                "lat": 36.8800,
+                "lng": 30.7000
+            },
+            "areaType": "roof",
+            "baseCost": 15000
+        },
+        {
+            "id": "07-02",
+            "cityId": "07",
+            "city": "Antalya",
+            "district": "Kepez",
+            "coordinates": {
+                "lat": 36.9200,
+                "lng": 30.6800
+            },
+            "areaType": "roof",
+            "baseCost": 14000
+        },
+        {
+            "id": "07-03",
+            "cityId": "07",
+            "city": "Antalya",
+            "district": "Konyaaltı",
+            "coordinates": {
+                "lat": 36.8700,
+                "lng": 30.6300
+            },
+            "areaType": "roof",
+            "baseCost": 15500
+        },
+        {
+            "id": "07-04",
+            "cityId": "07",
+            "city": "Antalya",
+            "district": "Alanya",
+            "coordinates": {
+                "lat": 36.5400,
+                "lng": 32.0000
+            },
+            "areaType": "roof",
+            "baseCost": 15000
+        },
+        {
+            "id": "07-05",
+            "cityId": "07",
+            "city": "Antalya",
+            "district": "Manavgat",
+            "coordinates": {
+                "lat": 36.7800,
+                "lng": 31.4400
+            },
+            "areaType": "openLand",
+            "baseCost": 14000
+        },
+        {
+            "id": "07-06",
+            "cityId": "07",
+            "city": "Antalya",
+            "district": "Kaş",
+            "coordinates": {
+                "lat": 36.2000,
+                "lng": 29.6300
+            },
+            "areaType": "openLand",
+            "baseCost": 16000
+        },
+        {
+            "id": "16-01",
+            "cityId": "16",
+            "city": "Bursa",
+            "district": "Osmangazi",
+            "coordinates": {
+                "lat": 40.2000,
+                "lng": 29.0500
+            },
+            "areaType": "roof",
+            "baseCost": 17000
+        },
+        {
+            "id": "16-02",
+            "cityId": "16",
+            "city": "Bursa",
+            "district": "Nilüfer",
+            "coordinates": {
+                "lat": 40.2100,
+                "lng": 28.9600
+            },
+            "areaType": "roof",
+            "baseCost": 17500
+        },
+        {
+            "id": "16-03",
+            "cityId": "16",
+            "city": "Bursa",
+            "district": "Yıldırım",
+            "coordinates": {
+                "lat": 40.1800,
+                "lng": 29.1000
+            },
+            "areaType": "roof",
+            "baseCost": 16500
+        },
+        {
+            "id": "01-01",
+            "cityId": "01",
+            "city": "Adana",
+            "district": "Seyhan",
+            "coordinates": {
+                "lat": 37.0000,
+                "lng": 35.3200
+            },
+            "areaType": "roof",
+            "baseCost": 14000
+        },
+        {
+            "id": "01-02",
+            "cityId": "01",
+            "city": "Adana",
+            "district": "Çukurova",
+            "coordinates": {
+                "lat": 37.0500,
+                "lng": 35.2800
+            },
+            "areaType": "roof",
+            "baseCost": 14500
+        },
+        {
+            "id": "01-03",
+            "cityId": "01",
+            "city": "Adana",
+            "district": "Yüreğir",
+            "coordinates": {
+                "lat": 36.9800,
+                "lng": 35.3500
+            },
+            "areaType": "openLand",
+            "baseCost": 13500
+        }
+    ]
+}

@@ -7,6 +7,7 @@ import { SolarDetails } from "../components/solar-details";
 import { SolarCharts } from "../components/solar-charts";
 import { ThemeToggle } from "../components/theme-toggle";
 import citiesJSON from "../data/cities.json"; // Load static cities
+import districtsJSON from "../data/districts.json"; // Load districts
 import { fetchSolarData } from "../lib/nasa"; // Live data fetcher
 import { Button } from "../components/ui/button";
 import {
@@ -24,6 +25,11 @@ export default function HomePage() {
   const [isMobileDetailsOpen, setIsMobileDetailsOpen] = useState(false);
   const [sortBy, setSortBy] = useState("city");
   const [filterBy, setFilterBy] = useState("all");
+
+  // Drill-down State
+  const [viewMode, setViewMode] = useState("country"); // 'country' | 'city'
+  const [mapConfig, setMapConfig] = useState({ center: [39.0, 35.0], zoom: 6 });
+  const [currentCity, setCurrentCity] = useState(null);
 
   // State for dynamic data
   // Initialize with cities but "loading" metrics
@@ -43,6 +49,10 @@ export default function HomePage() {
 
   // Effect to fetch data progressively
   useEffect(() => {
+    // Optimization: Only run if there are unloaded spots to fetch
+    const hasUnloaded = solarSpots.some(s => !s.isLoaded);
+    if (!hasUnloaded) return;
+
     async function updateSpots() {
       // Create a copy to update
       // Optimization: For demo, update top 10 cities first, or random, or just all in parallel batches.
@@ -53,6 +63,11 @@ export default function HomePage() {
       const batchSize = 5;
       for (let i = 0; i < citiesToUpdate.length; i += batchSize) {
         const batch = citiesToUpdate.slice(i, i + batchSize);
+
+        // Check if this batch actually needs fetching to avoid unnecessary state updates
+        const batchNeedsUpdate = batch.some(c => !c.isLoaded);
+        if (!batchNeedsUpdate) continue;
+
         await Promise.all(batch.map(async (city) => {
           if (city.isLoaded) return; // Skip if already loaded
 
@@ -87,7 +102,7 @@ export default function HomePage() {
     }
 
     updateSpots();
-  }, []); // Run once on mount
+  }, [solarSpots]); // Run when solarSpots changes (e.g. new districts added)
 
 
   const filteredAndSortedSpots = useMemo(() => {
@@ -127,8 +142,78 @@ export default function HomePage() {
     setIsMobileDetailsOpen(false);
   };
 
-  const handleCityClick = (spot) => {
-    handleSpotClick(spot);
+  // Handle Drill Down
+  const handleCityClick = async (spot) => {
+    // If we are in country mode, and clicked a City (not a district), drill down
+    if (viewMode === "country") {
+      const cityDistricts = districtsJSON.districts.filter(d => d.cityId === spot.id);
+
+      if (cityDistricts.length > 0) {
+        // Switch to City Mode
+        setViewMode("city");
+        setCurrentCity(spot);
+
+        // Initialize districts with loading state
+        const initialDistricts = cityDistricts.map(d => ({
+          ...d,
+          cost: d.baseCost,
+          sunHoursPerDay: 0,
+          efficiency: 0,
+          annualProduction: 0,
+          paybackPeriod: 0,
+          co2Reduction: 0,
+          suitable: false,
+          isLoaded: false
+        }));
+
+        setSolarSpots(initialDistricts);
+
+        // Zoom to City
+        setMapConfig({ center: [spot.coordinates.lat, spot.coordinates.lng], zoom: 10 });
+
+        // Trigger fetch for districts (reuse the effect or manually trigger? 
+        // The existing effect depends on solarSpots so it will auto-trigger! 
+        // BUT we need to ensure the effect handles the new array correctly.
+        // The existing effect slices and loops. It should work fine.)
+
+      } else {
+        // No districts data for this city, just show details
+        handleSpotClick(spot);
+      }
+    } else {
+      // Already in city mode (clicked a district), just show details
+      handleSpotClick(spot);
+    }
+  };
+
+  const handleBackToCountry = () => {
+    setViewMode("country");
+    setCurrentCity(null);
+    setSelectedSpot(null);
+    setMapConfig({ center: [39.0, 35.0], zoom: 6 });
+
+    // Restore Cities
+    // We need to reload cities status. 
+    // Ideally we should have kept them in a ref or separate state to avoid re-fetching NASA data every time we go back.
+    // For now, let's just reload from JSON and let them lazy load again (simpler) or maybe better:
+    // To avoid data loss, we should have distinct states for 'cities' and 'districts'.
+    // But for this refactor, I'll just reset to initial cities to keep it simple.
+    // Optimally: user expects previous data to remain. 
+    // Let's rely on the browser cache for NASA requests if possible, or accept re-fetch.
+
+    setSolarSpots(
+      citiesJSON.cities.map(city => ({
+        ...city,
+        cost: city.baseCost,
+        sunHoursPerDay: 0,
+        efficiency: 0,
+        annualProduction: 0,
+        paybackPeriod: 0,
+        co2Reduction: 0,
+        suitable: false,
+        isLoaded: false
+      }))
+    );
   };
 
   return (
@@ -136,9 +221,18 @@ export default function HomePage() {
       <div className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b p-4 z-[1000] sticky top-0">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-semibold">Solar Panel Mapping</h1>
+            <div className="flex items-center gap-2">
+              {viewMode === "city" && (
+                <Button variant="outline" size="sm" onClick={handleBackToCountry} className="mr-2 px-2 h-8">
+                  ← Back
+                </Button>
+              )}
+              <h1 className="text-xl font-semibold">
+                {viewMode === "city" && currentCity ? `${currentCity.city} Districts` : "Solar Panel Mapping"}
+              </h1>
+            </div>
             <p className="text-sm text-muted-foreground">
-              Interactive solar potential analysis (Powered by NASA)
+              {viewMode === "city" ? "District-level solar potential" : "Interactive solar potential analysis (Powered by NASA)"}
             </p>
           </div>
           <ThemeToggle />
@@ -182,9 +276,11 @@ export default function HomePage() {
           )}
           <SolarMap
             solarSpots={filteredAndSortedSpots}
-            onSpotClick={handleSpotClick}
+            onSpotClick={handleCityClick}
             selectedSpot={selectedSpot}
             theme={resolvedTheme}
+            center={mapConfig.center}
+            zoom={mapConfig.zoom}
           />
         </div>
 

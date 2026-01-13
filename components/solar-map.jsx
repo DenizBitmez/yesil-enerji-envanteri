@@ -7,17 +7,34 @@ export function SolarMap({
   onSpotClick,
   selectedSpot,
   theme = "light",
+  center = [39.0, 35.0], // Default: Turkey center
+  zoom = 6,              // Default: Country zoom
 }) {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const markersRef = useRef([]);
+
+  // Handle Dynamic View Change (FlyTo)
+  useEffect(() => {
+    if (mapInstanceRef.current) {
+      mapInstanceRef.current.flyTo(center, zoom, {
+        duration: 1.5,
+        easeLinearity: 0.25
+      });
+    }
+  }, [center, zoom]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !mapRef.current) return;
 
     const initMap = async () => {
       try {
-        // Clean up existing map
+        // ... (Cleanup logic remains same)
+
+        // Only init if not already exists (or we rely on cleanup? 
+        // Existing logic destroys map on every re-render of this effect.
+        // Let's keep existing logic but use the prop values for initial state.)
+
         if (mapInstanceRef.current) {
           mapInstanceRef.current.remove();
           mapInstanceRef.current = null;
@@ -27,8 +44,7 @@ export function SolarMap({
         if (!document.querySelector('link[href*="leaflet.css"]')) {
           const link = document.createElement("link");
           link.rel = "stylesheet";
-          link.href =
-            "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css";
+          link.href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css";
           document.head.appendChild(link);
         }
 
@@ -36,11 +52,15 @@ export function SolarMap({
         const L = await import("leaflet");
 
         // Initialize map
+
         const map = L.map(mapRef.current, {
-          center: [39.0, 35.0],
-          zoom: 6,
-          zoomControl: true,
+          center: center, // Use prop
+          zoom: zoom,     // Use prop
+          zoomControl: false, // Custom control or default? Let's keep default true. Wait, code had true.
         });
+
+        // Mobile zoom control position fix if needed, but let's stick to simple first
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
 
         mapInstanceRef.current = map;
 
@@ -85,13 +105,11 @@ export function SolarMap({
           marker.bindPopup(`
             <div style="padding: 8px; font-family: system-ui;">
               <h3 style="margin: 0 0 8px 0; font-weight: 600;">${spot.city}</h3>
-              <p style="margin: 2px 0;">Sun Hours: ${
-                spot.sunHoursPerDay
-              }/day</p>
+              <p style="margin: 2px 0;">Sun Hours: ${spot.sunHoursPerDay
+            }/day</p>
               <p style="margin: 2px 0;">Type: ${spot.areaType || "N/A"}</p>
-              <p style="margin: 2px 0;">Status: ${
-                spot.suitable ? "Suitable" : "Not Suitable"
-              }</p>
+              <p style="margin: 2px 0;">Status: ${spot.suitable ? "Suitable" : "Not Suitable"
+            }</p>
             </div>
           `);
 
